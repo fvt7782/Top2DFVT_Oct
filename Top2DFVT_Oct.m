@@ -76,7 +76,6 @@ for i = 1:length(penal(:))
         xPhys(:) = density(xnew);
         change = max(abs(xnew(:)-x(:)));
         x = xnew;
-        %set(fig,'FaceColor','flat','CData',1-xPhys(:)); drawnow
         %_____________________________________________________PRINT RESULTS
         fprintf('It: %i\tObjec.: %1.4f\tVol.: %1.3f\tChange: %1.3f\n',...
             loop,f,mean(xPhys(:)),change);
@@ -86,7 +85,6 @@ end
 fprintf('Total number of iterations: %i\t',count);
 PrintTime(toc);
 %___________________________________________________________PLOT DESIGN
-%clearvars;
 colormap(gray);imagesc(1-xPhys');caxis([0 1]);axis equal off tight;             % optimized topology
 drawnow;
 %_______________________________________________ORDENING DEGREES OF FREEDOM
